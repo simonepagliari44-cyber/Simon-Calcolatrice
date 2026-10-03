@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📱 **Simon-Calcolatrice** 🔢
+# 📱 **Simon-Calcolatrice**
 
 ### *Soluzione Web & Mobile per il Calcolo Veloce e Affidabile*
 

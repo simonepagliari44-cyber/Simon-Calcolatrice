@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📱 **Simon-Calcolatrice** 🔢
+# 📱 **Simon-Calcolatrice**
 
 ### *App Android per il calcolo rapido, offline e senza pubblicità*
 
