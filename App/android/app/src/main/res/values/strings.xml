@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Simon-Calcolatrice</string>
+    <string name="title_activity_main">Simon-Calcolatrice</string>
+    <string name="package_name">com.simonecompany.simoncalcolatrice</string>
+    <string name="custom_url_scheme">com.simonecompany.simoncalcolatrice</string>
+</resources>

@@ -1,0 +1,28 @@
+{
+  "name": "simon-calcolatrice",
+  "version": "1.0.0",
+  "description": "Simon-Calcolatrice - app Android (Capacitor) con icona adattiva e splash nativo",
+  "private": true,
+  "scripts": {
+    "icons": "node tools/generate-icons.mjs",
+    "web": "node tools/prepare-web.mjs",
+    "site": "node tools/build-web.mjs",
+    "sync": "npm run web && cap sync android",
+    "apk": "npm run sync && cd android && ./gradlew assembleDebug",
+    "apk:release": "npm run sync && cd android && ./gradlew assembleRelease",
+    "open": "cap open android"
+  },
+  "keywords": [],
+  "author": "simonecompany",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@capacitor/core": "^7.6.9",
+    "@capacitor/preferences": "^7.0.4"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^7.6.9",
+    "@capacitor/cli": "^7.6.9",
+    "@resvg/resvg-js": "^2.6.2"
+  }
+}
