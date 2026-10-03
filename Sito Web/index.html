@@ -93,14 +93,14 @@
     /* === TELEFONO IN ORIZZONTALE (schermi bassi): il keypad passa a 5 colonne e tutto si stringe,
        così i 29 tasti dell'Avanzata restano visibili e premibili senza scorrere === */
     @media (orientation: landscape) and (max-height: 560px) {
-      .app { gap: 6px; }
+      .app { gap: 4px; padding-top: max(6px, env(safe-area-inset-top)); padding-bottom: max(6px, env(safe-area-inset-bottom)); }
       .header { gap: 6px; }
-      .display { padding: 8px 14px; gap: 2px; }
-      .exp { font-size: 0.72rem; min-height: 1.1em; }
-      .res { font-size: clamp(1.2rem, 7vh, 1.9rem); }
+      .display { padding: 6px 14px; gap: 1px; }
+      .exp { font-size: 0.66rem; min-height: 1em; }
+      .res { font-size: clamp(1.05rem, 6.2vh, 1.7rem); }
       .keypad { grid-template-columns: repeat(5, 1fr); grid-auto-rows: minmax(30px, 1fr); gap: 5px; }
       .key, .adv-key { font-size: clamp(0.78rem, 4.6vh, 1.1rem); }
-      .icon-btn, .mode-chip { min-height: 34px; }
+      .icon-btn, .mode-chip { min-height: 30px; }
       .icon-btn { padding: 4px 10px; }
       .mode-chip { padding: 4px 10px; }
       .mode-toggle { padding: 3px; gap: 3px; }
@@ -336,8 +336,11 @@
     const advancedKeys = [
       "AC","⌫","%","÷","7","8","9","×","4","5","6","−",
       "1","2","3","+","0",".","±","=",
-      "√","x²","x³","xʸ","1/x","sin","cos","tan","π"
+      "√","x²","x³","xʸ","1/x","sin","cos","tan","π",
+      "(",")","[","]","{","}"
     ];
+    const openBrackets = ["(", "[", "{"];
+    const closeBrackets = [")", "]", "}"];
 
     function renderKeypad(mode) {
       keypad.innerHTML = "";
@@ -358,7 +361,8 @@
       if (!expr) return null;
       let e = expr
         .replace(/−/g, "-").replace(/×/g, "*").replace(/÷/g, "/")
-        .replace(/%/g, "/100").replace(/\^/g, "**");
+        .replace(/%/g, "/100").replace(/\^/g, "**")
+        .replace(/[\[\{]/g, "(").replace(/[\]\}]/g, ")");
       if (/[-+*/]$/.test(e)) return "ERROR";
       try {
         const val = Function('"use strict";return(' + e + ')')();
@@ -562,6 +566,21 @@
         updateDisplay();
         return;
       }
+      if (openBrackets.includes(k) || closeBrackets.includes(k)) {
+        if (justEvaluated) { expression = ""; justEvaluated = false; }
+        if (closeBrackets.includes(k)) {
+          const opened = (expression.match(/[({\[]/g) || []).length;
+          const closed = (expression.match(/[)}\]]/g) || []).length;
+          if (opened <= closed) return updateDisplay();
+        }
+        /* 7( vuol dire 7×( : il × si inserisce solo con le parentesi aperte. */
+        if (openBrackets.includes(k) && /[0-9)\].}]|π/.test(expression.slice(-1))) expression += "×";
+        expression += k;
+        const v = safeEval(expression);
+        if (v !== "ERROR" && v !== null) result = v;
+        updateDisplay();
+        return;
+      }
       if (k === "xʸ") {
         expression = (justEvaluated ? String(result) : expression) + "^";
         justEvaluated = false;
@@ -577,7 +596,7 @@
       }
       /* Dopo "=": una cifra ricomincia il calcolo, un operatore prosegue dal risultato. */
       if (justEvaluated) {
-        expression = /[0-9.]/.test(k) ? "" : String(result);
+        expression = /[0-9.(\[\{]/.test(k) ? "" : String(result);
         justEvaluated = false;
       }
       expression += k;

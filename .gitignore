@@ -1,0 +1,49 @@
+# ── Dipendenze npm ────────────────────────────────────────────────────────────
+node_modules/
+.npm/
+
+# ── Asset web generati (si ricreano con `npm run web` / `npm run sync`) ───────
+App/www/
+App/js/
+
+# ── Build Android ─────────────────────────────────────────────────────────────
+App/android/.gradle/
+App/android/build/
+App/android/app/build/
+App/android/capacitor-cordova-android-plugins/
+App/android/app/src/main/assets/public/
+App/android/app/src/main/assets/capacitor.config.json
+App/android/app/src/main/assets/capacitor.plugins.json
+App/android/local.properties
+.cxx/
+
+# ── Pacchetti e chiavi di firma ───────────────────────────────────────────────
+*.apk
+*.aab
+*.ap_
+*.aar
+*.dex
+*.jks
+*.keystore
+
+# ── Editor e ambienti di sviluppo ─────────────────────────────────────────────
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# ── Segreti e variabili d'ambiente ─────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Cache e configurazione locale di Cloudflare Wrangler ─────────────────────────
+.wrangler/
+
+# ── Log e file temporanei ─────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-error.log*
+Thumbs.db
+.DS_Store

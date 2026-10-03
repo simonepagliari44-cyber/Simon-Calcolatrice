@@ -20,7 +20,7 @@ La stessa applicazione è disponibile anche nel browser su **https://simon-calco
 
 ## ✨ **Caratteristiche**
 
-* 🔢 **Due modalità:** *Normale* con 20 tasti e *Avanzata* con 29 tasti, che aggiunge `√`, `x²`, `x³`, `xʸ`, `1/x`, `sin`, `cos`, `tan` e `π`.
+* 🔢 **Due modalità:** *Normale* con 20 tasti e *Avanzata* con 35 tasti, che aggiunge `√`, `x²`, `x³`, `xʸ`, `1/x`, `sin`, `cos`, `tan`, `π` e le parentesi tonde `( )`, quadre `[ ]` e graffe `{ }`.
 * 🌍 **35 lingue:** l'interfaccia si imposta da sola sulla lingua del dispositivo (italiano, inglese, spagnolo, francese, tedesco, russo, cinese, giapponese, arabo e altre).
 * 🗂️ **Cronologia persistente:** ogni calcolo viene salvato nei **dati dell'app** con il plugin nativo *Capacitor Preferences* (non nella cache del browser), si può riaprire un calcolo con un tocco, cancellare una voce o svuotare tutto con conferma.
 * ➗ **Segno e percentuale:** supporto completo a `±`, `%`, `AC` e `⌫` con anteprima del risultato in tempo reale.

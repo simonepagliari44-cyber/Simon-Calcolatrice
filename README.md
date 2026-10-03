@@ -28,7 +28,7 @@ La stessa base di codice alimenta le due piattaforme: nel browser viene servita 
 * 🎨 **Interfaccia Utente Moderna:** design reattivo, pulito e intuitivo, focalizzato sulla facilità d'uso e sull'accessibilità, con feedback di pressione e ripple in stile Material.
 * ⚡ **Prestazioni Elevate:** nessun framework, nessuna richiesta di rete, caricamento istantaneo e funzionamento completo offline su qualsiasi schermo.
 * 🔄 **Dati Persistenti:** la cronologia viene salvata nei **dati dell'app** tramite il plugin nativo *Capacitor Preferences* su Android e in `localStorage` sul web, con modifica, cancellazione singola e cancellazione totale con conferma.
-* 🔢 **Motore di Calcolo Custom:** parsing ed evaluation delle espressioni scritti a mano, nessuna libreria esterna, con due modalità operative (Normale e Avanzata).
+* 🔢 **Motore di Calcolo Custom:** parsing ed evaluation delle espressioni scritti a mano, nessuna libreria esterna, con due modalità operative: *Normale* da 20 tasti e *Avanzata* da 35 tasti, con `√`, `x²`, `x³`, `xʸ`, `1/x`, `sin`, `cos`, `tan`, `π` e parentesi tonde, quadre e graffe.
 * 🌍 **Multilingua:** l'interfaccia si adatta automaticamente alla lingua del dispositivo tra **35 lingue** supportate.
 
 ---
